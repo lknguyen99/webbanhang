@@ -1,0 +1,126 @@
+﻿@using ShopOnline.Help
+@model IEnumerable<ShopOnline.Models.product>
+
+
+
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.img)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.size)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.color)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.hide)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.order)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.datebegin)
+                </th>
+                
+                <th></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.img)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.size)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.color)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.hide)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.order)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.datebegin)
+                </th>
+                
+                <th></th>
+            </tr>
+        </tfoot>
+        <tbody>
+           
+            @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.price)
+                            </td>
+                            <td>
+                                <div class="col-md-4">
+                                    <img src="~/Content/upload/img/product/@item.img" width="100px" />
+                                </div>
+                                
+                            </td>
+                           
+                            <td>
+                                @Html.DisplayFor(modelItem => item.size)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.color)
+                            </td>
+                            <td>
+                               @(item.hide.GetValueOrDefault(false) ? "Hiển Thị" : "Ẩn")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.order)
+                            </td>
+                            <td>
+                                @(item.datebegin.HasValue ? item.datebegin.Value.ToString("dd/MM/yy"):"")
+                            </td>
+                            
+                            <td>
+                                @Html.NoEncodeActionLink(" <span class='glyphicon glyphicon-plus'></span> Edit", "Edit", "Edit", "product",
+                                                        routeValues: new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger" })
+                                @Html.NoEncodeActionLink(" <span class='glyphicon glyphicon-plus'></span> Detail", "Details", "Details", "product",
+                                                        routeValues: new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary" })
+                                @Html.NoEncodeActionLink(" <span class='glyphicon glyphicon-plus'></span> Delete", "Delete", "Delete", "product",
+                                                        routeValues: new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                        }
+        </tbody>
+    </table>
+
+<script src="~/Areas/admin/Script/js/demo/datatables-demo.js"></script>
+

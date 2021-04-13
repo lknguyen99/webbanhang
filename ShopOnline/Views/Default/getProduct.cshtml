@@ -1,0 +1,24 @@
+﻿@model List<ShopOnline.Models.product>
+
+
+
+@foreach (var i in Model)
+{
+    <div class="grid_1_of_4 images_1_of_4">
+        <a href="/@ViewBag.title/@i.meta/@i.id"><img src="~/Content/images/@i.img" alt="" /></a>
+        <h2>@i.name </h2>
+        <div class="price-details">
+            <div class="price-number">
+                <p><span class="rupees">@i.price</span></p>
+            </div>
+            <div class="add-cart">
+                <div class="button"><span><a style="color:white;" href="@Url.Action("ThemGioHang", "Cart", new {@idproduct = @i.id, @strURL = Request.Url.ToString() })">Add To Cart</a></span></div>
+
+                @*<h4><a href="preview.html">Add to Cart</a></h4>*@
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </div>
+}
+

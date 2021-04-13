@@ -1,0 +1,13 @@
+﻿@model IEnumerable<ShopOnline.Models.contact>
+<div class="company_address">
+    @foreach (var i in Model)
+    {
+        <h3>Company Information :</h3>
+        <p>@i.description</p>
+        <p>Phone:@i.phone</p>
+
+        <p>Email: <a href="mailto:info@mycompany.com">@i.email</a></p>
+        <p>Follow on: <span>@i.link</span></p>
+        <img class="img-shop" src="~/Content/images/@i.img" />
+    }
+</div>

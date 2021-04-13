@@ -1,0 +1,18 @@
+﻿@model List<ShopOnline.Models.category>
+
+
+<div class="content_top">
+    @foreach (var i in Model)
+    {
+        <div class="heading">
+            <h3><a href="@ViewBag.meta/@i.meta">@i.name</a></h3>
+        </div>
+        <div class="see">
+            <p><a href="#">See all Products</a></p>
+        </div>
+        <div class="clear"></div>
+        <div class="section group">
+            @{Html.RenderAction("getProduct", "Default", new { id = @i.id, metatitle = @ViewBag.metatitle });}
+        </div>
+    }
+</div>

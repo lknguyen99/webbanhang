@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<style>
+    td, th {
+        padding: 7px;
+    }
+    h4 {
+        font-size: 30px;
+        color: red;
+        margin-top: 30px;
+    }
+
+</style>
+<div class="thongbao">
+    <h4>@ViewBag.Thongbao</h4>
+</div>
+<h2 style="margin-top:50px;font-size:30px;">Đăng Nhập</h2>
+<div style="margin-top:20px; height:335px;">
+    <table align="center">
+        
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <tr>
+                <td>Tài Khoản</td>
+                <td>
+                    @Html.TextBox("Taikhoan")
+                    @ViewData["Loi1"]
+                </td>
+            </tr>
+            <tr>
+                <td>Mật Khẩu</td>
+                <td>
+                    @Html.TextBox("Matkhau",null,new { @type="password" })
+                    @ViewData["Loi2"]
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="Submit" value="Đăng Nhập" />
+                </td>
+            </tr>
+        }
+    </table>
+</div>

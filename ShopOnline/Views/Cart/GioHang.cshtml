@@ -1,0 +1,58 @@
+﻿@using ShopOnline.Models
+@model List<Giohang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<link href="~/Areas/admin/Content/css/sb-admin-2.min.css" rel="stylesheet" type="text/css" media="all" />
+
+<style>
+    table td, table th {
+        border: 1px solid black;
+    }
+
+    tr {
+        height: 50px;
+    }
+
+    td {
+        vertical-align: middle;
+    }
+</style>
+<h2 style="text-align:center; margin:20px; font-size:30px; color:black;">THÔNG TIN GIỎ HÀNG</h2>
+<table width="100%" cellpadding="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td>Mã SP</td>
+        <td>Tên SP</td>
+        <td>Ảnh SP</td>
+        <td>Số lượng</td>
+        <td>Đơn giá</td>
+        <td>Thành tiền</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold">
+            <td>@item.idProduct</td>
+            <td>@item.nameProduct</td>
+            <td><img src="/Content/images/@item.imgProduct" width="100" /></td>
+            <td><input type="text" class="quantity" value="@item.SLProduct" /></td>
+            <td>@String.Format("{0:0,0}", item.priceProduct)</td>
+            <td>@String.Format("{0:0,0}", item.TotalPrice)</td>
+        </tr>
+    }
+    <tr style="text-align:left; font-weight:bold; color:red;">
+        <td style="padding-left:30px;" colspan="5">Tong so luong: @String.Format("{0:0,0}", ViewBag.Tongsoluong)</td>
+        <td style="padding-left:10px;" colspan="5">Tong Tien: @String.Format("{0:0,0}", ViewBag.Tongtien)</td>
+    </tr>
+    <tr>
+        <td colspan="9" align="center">
+            @Html.ActionLink("Đặt Hàng", "DatHang", "Cart", null, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+
+</table>
+
+
+
+

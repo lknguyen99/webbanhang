@@ -1,0 +1,164 @@
+﻿@model IEnumerable <ShopOnline.Models.contact>
+@using ShopOnline.Help
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/LayOut.cshtml";
+}
+
+@section _Header
+{
+    <!-- Custom styles for this page -->
+    <link href="~/Areas/admin/Content/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Quản Lý Contact </h1>
+    <p class="mb-4"></p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Contact</h6>
+        </div>
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <p>
+                    @Html.ActionLink("Thêm mới", "Create")
+                </p>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.link)
+                            </th>
+
+
+                            @*<th>
+            @Html.DisplayNameFor(model => model.link)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datebegin)*@
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.phone)
+                            </th>
+
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.link)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.meta)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.hide)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.order)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.datebegin)
+                                </th>*@
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.phone)
+                            </td>
+
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.link)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.meta)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hide)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.order)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.datebegin)
+                            </td>*@
+                        <td @*class="btn btn-block"*@>
+                            @Html.NoEncodeActionLink(" <span class='glyphicon glyphicon-plus'></span> Edit", "Edit", "Edit", "contacts",
+                                                    routeValues: new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary" })
+                            @Html.NoEncodeActionLink(" <span class='glyphicon glyphicon-plus'></span> Detail", "Details", "Details", "contacts",
+                                                    routeValues: new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary" })
+                            @Html.NoEncodeActionLink(" <span class='glyphicon glyphicon-plus'></span> Delete", "Delete", "Delete", "contacts",
+                                                    routeValues: new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger" })
+                        </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+<!-- footer -->
+@section _Footer
+{
+    <!-- Page level plugins -->
+    <script src="~/Areas/admin/Script/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/admin/Script/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="~/Areas/admin/Script/js/demo/datatables-demo.js"></script>
+}
+

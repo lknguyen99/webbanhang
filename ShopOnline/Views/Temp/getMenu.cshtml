@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ShopOnline.Models.menu>
+
+<div class="menu">
+    <ul>
+        @foreach (var i in Model)
+        {
+            <li><a href="/@i.meta">@i.name </a></li>
+        }
+        <div class="clear"></div>
+    </ul>
+</div>
+

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<ShopOnline.Models.news>
+
+<div class="twitter-in">
+    <h5>TWITTER  UPDATES</h5>
+    <span class="twitter-ic">	</span>
+    @foreach (var i in Model)
+    {
+        <div class="up-date">
+            <p>@i.name</p>
+            <p class="ago">@i.description</p>
+        </div>
+    }
+    <a href="@Url.Action("Index","Event")" class="tweets">Xem thêm</a>
+    <div class="clearfix"> </div>
+</div>

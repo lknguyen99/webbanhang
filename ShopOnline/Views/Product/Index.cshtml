@@ -1,0 +1,25 @@
+﻿@model ShopOnline.Models.category
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="heading">
+                <h3>@Model.name</h3>
+            </div>
+            <div class="see">
+                <p><a href="#">See all Products</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="section group">
+            @{Html.RenderAction("getProduct", "Default", new { id = Model.id, metatitle = @Model.meta });}
+
+        </div>
+
+    </div>
+</div>
+

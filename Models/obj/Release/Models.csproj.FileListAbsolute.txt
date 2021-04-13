@@ -1,0 +1,12 @@
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\bin\Release\Models.dll.config
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\bin\Release\Models.dll
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\bin\Release\Models.pdb
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\bin\Release\EntityFramework.dll
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\bin\Release\EntityFramework.SqlServer.dll
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\bin\Release\EntityFramework.xml
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\bin\Release\EntityFramework.SqlServer.xml
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\obj\Release\Models.csproj.CoreCompileInputs.cache
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\obj\Release\Models.csproj.CopyComplete
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\obj\Release\Models.dll
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\obj\Release\Models.pdb
+D:\Users\Dell\Desktop\TMĐT\WebBanhang\webbanhang\Models\obj\Release\Models.csprojAssemblyReference.cache

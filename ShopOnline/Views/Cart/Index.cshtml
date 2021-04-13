@@ -1,0 +1,59 @@
+﻿@*@using ShopOnline.Help*@
+@using ShopOnline.Models
+@model List<Giohang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Mã SP</td>
+            <td>Tên SP</td>
+            <td>Ảnh SP</td>
+            <td>Số lượng</td>
+            <td>Đơn giá</td>
+            <td>Thành tiền</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.idProduct</td>
+            <td>@item.nameProduct</td>
+            <td><img src="/Content/images/@item.imgProduct" width="100" /></td>
+            <td><input type="text" class="quantity" value="@item.SLProduct" /></td>
+            <td>@String.Format("{0:0,0}", item.priceProduct)</td>
+            <td>@String.Format("{0:0,0}", item.TotalPrice)</td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+@*<script>
+        $(document).ready(function () {
+            function getProduct() {
+                var categoryid = $('#category').val();
+                $.ajax({
+                    url: '@Url.Action("getProduct", "product")',
+                    type: "Get",
+                    data: { id: categoryid },
+                    success: function (data) {
+                        $("#getProduct").html(data);
+                    },
+                    error: function (data) {
+                        alert("some thing went wrong.");
+                    }
+
+                });
+            }
+            getProduct();
+            $("#category").change(function () {
+                getProduct();
+            })
+        });
+</script>*@
+

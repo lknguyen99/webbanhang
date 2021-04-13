@@ -1,0 +1,9 @@
+﻿@model IEnumerable<ShopOnline.Models.news>
+
+@foreach (var i in Model)
+{
+    <div class="privacy-bottom">
+        <h5><a href="#">@i.name.</a></h5>
+        <p>@i.description</p>
+    </div>
+}

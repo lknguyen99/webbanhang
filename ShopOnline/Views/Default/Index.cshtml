@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<div class="header_slide">
+    <div class="header_bottom_left">
+        <div class="categories">
+            <ul>
+                <h3>Categories</h3>
+                <li><a href="/san-pham/apple">APPLE</a></li>
+                <li><a href="/san-pham/sam-sung">SAMSUNG</a></li>
+                <li><a href="/san-pham/xiaomi">XIAOMI</a></li>
+                <li><a href="/san-pham/dien-thoai">SAMSUNG</a></li>
+                <li><a href="/san-pham/lap-top">MACBOOK</a></li>
+                @*<li><a href="/san-pham/lap-top">MACBOOK</a></li>
+                <li><a href="/san-pham/dien-thoai">SAMSUNG</a></li>
+                <li><a href="/san-pham/lap-top">MACBOOK</a></li>
+                <li><a href="/san-pham/dien-thoai">SAMSUNG</a></li>
+                <li><a href="/san-pham/lap-top">MACBOOK</a></li>
+                <li><a href="/san-pham/dien-thoai">SAMSUNG</a></li>
+                <li><a href="/san-pham/lap-top">MACBOOK</a></li>*@
+            </ul>
+        </div>
+    </div>
+    <div class="header_slide">
+        <div class="header_bottom_right">
+            <div class="slider">
+                <div id="slider">
+                    @{ Html.RenderAction("getBanner", "Default");}
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="main">
+    <div class="content">
+        @{ Html.RenderAction("getCategory", "Default");}
+    </div>
+</div>
+

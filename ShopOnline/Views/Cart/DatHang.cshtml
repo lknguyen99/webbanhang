@@ -1,0 +1,97 @@
+﻿@using ShopOnline.Models
+@model List<Giohang>
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<link href="~/Areas/admin/Content/css/sb-admin-2.min.css" rel="stylesheet" type="text/css" media="all" />
+
+<style>
+    table td, table th {
+        border: 1px solid black;
+    }
+
+    tr {
+        height: 50px;
+    }
+
+    td {
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
+<h2 style=" margin: 20px 20px 20px 355px; font-size:30px; color:black;">ĐẶT HÀNG</h2>
+<table style="width:900px" align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td> Mã sản phẩm </td>
+        <td> Tên sản phẩm </td>
+        <td> Ảnh sản phẩm </td>
+        <td> Số lượng sản phẩm </td>
+        <td> Giá sản phẩm </td>
+        <td> Thành tiền </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @item.idProduct </td>
+            <td> @item.nameProduct </td>
+            <td><img src="/Content/images/@item.imgProduct" width="100" /></td>
+            @using (Html.BeginForm("CapNhapGioHang", "Cart", new { @idproduct = item.idProduct }))
+            {
+                <td>
+                    @item.SLProduct
+                </td>
+                <td>@String.Format("{0:0,0}", item.priceProduct)</td>
+                <td>@String.Format("{0:0,0}", item.TotalPrice)</td>
+            }
+        </tr>
+    }
+    <tr>
+        <td colspan="3"> Số lượng sách: @ViewBag.Tongsoluong </td>
+        <td colspan="3"> Tổng số tiền: @String.Format("{0:0,0}", @ViewBag.TongTien) VND </td>
+    </tr>
+    <tr>
+        <td colspan="6">
+            @Html.ActionLink("Trở về giỏ hàng", "GioHang", "Cart", null, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+</table>
+<h2 style=" margin: 20px 20px 20px 270px; font-size:30px; color:black;">THÔNG TIN ĐẶT HÀNG</h2>
+@{
+    KhachHang kh = (KhachHang)Session["Taikhoan"];
+}
+<table style="width:900px" align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr>
+            <td style="text-align:center; font-weight:bold"> Họ tên </td>
+            <td> @kh.TenKH </td>
+        </tr>
+        <tr>
+            <td style="text-align:center; font-weight:bold"> Địa chỉ </td>
+            <td> @kh.DiaChi</td>
+        </tr>
+        <tr>
+            <td style="text-align:center; font-weight:bold"> Điện thoại </td>
+            <td> @kh.SDT</td>
+        </tr>
+        <tr>
+            <td style="text-align:center; font-weight:bold"> Ngày đặt </td>
+            <td> @DateTime.Now.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <td style="text-align:center; font-weight:bold"> Ngày giao hàng </td>
+            <td>
+                <input type="date" name="Ngaygiao" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @Html.ActionLink("Thanh toán qua PayPal", "PaymentWithPaypal", "Cart", null, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Thanh toán trực tiếp", "Xacnhandonhang", "Cart", null, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+    }
+</table>

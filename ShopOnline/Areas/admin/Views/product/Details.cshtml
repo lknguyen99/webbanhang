@@ -1,0 +1,130 @@
+﻿@model ShopOnline.Models.product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/LayOut.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Quản Lý Menu </h1>
+    <p class="mb-4">  </p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Detail Menu</h6>
+        </div>
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <h4>menu</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.id)
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="20">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.img)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.price)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.description)
+                            </th>
+                            <th>
+                               @Html.DisplayNameFor(model => model.size)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.color)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.meta)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.hide)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.order)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.datebegin)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.categoryid)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.name)
+                            </td>
+                            <td>
+                                <div class="col-md-4">
+                                    <img src="~/Content/upload/img/product/@Model.img" width="100px" />
+                                </div>
+                                @Html.DisplayFor(model => model.img)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.size)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.color)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(model => model.meta)
+                            </td>
+                            <td>
+                               @(Model.hide.GetValueOrDefault(false) ? "Hiển thị" : "Ẩn")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.order)
+                            </td>
+                            <td>
+                               @(Model.datebegin.HasValue ? Model.datebegin.Value.ToString("dd/MM/yyyy") : "")
+                            </td>
+                            <td>
+                               @Html.DisplayFor(model => model.categoryid)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="m-0 font-weight-bold text-primary">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+@section _Footer
+        {
+    <!-- Page level plugins -->
+
+    <script src="~/Areas/admin/Script/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="~/Areas/admin/Script/js/demo/datatables-demo.js"></script>
+
+}
